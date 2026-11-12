@@ -1,270 +1,424 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hồ Ngọc Bảo Quyên - Cozy House</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile của Quyên</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,800&family=Lexend+Deca:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            /* Vibe sang trọng, ấm cúng với nền màu kem nhạt kết hợp hiệu ứng tối giản */
-            background-color: #f7f4ed; 
-            color: #2c3539;
-        }
+    body {
+      background-color: #fff7d6;
+      color: #210100;
+      line-height: 1.6;
+      width: 100%;
+      overflow-x: hidden;
+    }
 
-        /* Thanh Menu Navigation */
-        nav {
-            background-color: #81a9ee;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            border-bottom: 3px solid #ffdb83;
-            box-shadow: 0 4px 15px rgba(62, 102, 143, 0.2);
-        }
+    nav {
+      background-color: #FFE8A1;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 50px;
+      border-bottom: 3px solid #FFB366;
+      box-shadow: 0 4px 20px rgba(255, 179, 102, 0.15);
+    }
+       
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #332C23;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #ffffff;
-        }
+    .nav-right-container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 15px;
+    }
 
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
+    .nav-links a {
+      color: #332C23;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      padding: 8px 18px;
+      border-radius: 20px;
+    }
 
-        .nav-links a:hover {
-            color: #2c3539;
-            background-color: #ffdb83;
-        }
+    .nav-links a:hover, .nav-links a.active {
+      color: #332C23;
+      background-color: #FFD54F;
+      box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+    }
 
-        /* Container chính */
-        .profile-container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
+    .custom-logo-area {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px dashed #FFB366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
 
-        .back-btn {
-            display: inline-block;
-            text-decoration: none;
-            color: #3e668f;
-            font-weight: 600;
-            margin-bottom: 25px;
-            transition: opacity 0.3s;
-        }
+    .custom-logo-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .back-btn:hover {
-            opacity: 0.7;
-        }
+    .wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* Khung Profile mang phong cách Basic & Sang */
-        .profile-card {
-            background: #ffffff;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #e3dec9;
-            box-shadow: 0 15px 35px rgba(44, 53, 57, 0.06);
-        }
+    .sky-section {
+      width: 100%;
+      position: relative;
+      background-color: #71bbfd;
+      background-image: url('bgbq.png');
+      background-size: cover;
+      background-position: center;
+      padding: 50px 20px 90px 20px;
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 2px solid #afcad8;
+    }
 
-        /* Phần Banner phía trên (Chứa ảnh nền phong cảnh thơ mộng, sách và cây) */
-        .profile-header-bg {
-            height: 260px;
-            background: linear-gradient(rgba(44, 53, 57, 0.35), rgba(44, 53, 57, 0.55)),
-                        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCt1uCTxvW8mXKGUl4l4b-le7WgjaPn-60SFHerpYihvvfC6GJkkrawCe5Yz8CrRSJck5I7bCl_NjcQN1f69yjxJEx1mvUP9psTDqIvB46aCK85rteqn8pOnXBKNsCxWDyC68bh-pBomU3/s1600/hinh-nen-phong-canh-dep+%252813%2529.jpg') center/cover no-repeat;
-            position: relative;
-        }
+    .sky-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #800020;
+      text-align: center;
+      margin-bottom: 45px;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8), 
+                   0 4px 15px rgba(0, 0, 0, 0.15);
+    }
 
-        /* Avatar cá nhân đặt chèn lên banner */
-        .profile-avatar-container {
-            text-align: center;
-            margin-top: -75px;
-            position: relative;
-        }
+    .profile-combined-box {
+      background-color: #fef9c3;
+      border-radius: 32px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 880px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 2;
+      margin-top: 10px;
+    }
 
-        .profile-avatar-container img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #ffffff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
+    .avatar-wrapper {
+      width: 320px;
+      height: 270px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
 
-        /* Phần Nội dung thông tin */
-        .profile-content {
-            padding: 20px 50px 50px 50px;
-            text-align: center;
-        }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-        .profile-content h1 {
-            font-size: 2.2rem;
-            color: #2c3539;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
+    .info-details {
+      flex-grow: 1;
+      color: #210100;
+      font-size: 1.2rem;
+      line-height: 1.55;
+      font-weight: 600;
+    }
 
-        .profile-tagline {
-            font-size: 1rem;
-            color: #6b7c85;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
+    .info-item {
+      margin-bottom: 10px;
+    }
 
-        /* Bảng thông tin chi tiết */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            text-align: left;
-            background-color: #faf8f5;
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid #eee8d5;
-            margin-bottom: 30px;
-        }
+    .quote-box {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
 
-        .info-item {
-            margin-bottom: 10px;
-        }
+    .flying-cow {
+      position: absolute;
+      right: 25px;
+      bottom: 10px;
+      width: 210px;
+      z-index: 3;
+      mix-blend-mode: multiply;
+    }
 
-        .info-item label {
-            display: block;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #8c989e;
-            margin-bottom: 4px;
-            font-weight: 700;
-        }
+    .yellow-section {
+      width: 100%;
+      background-color: #fff7d6;
+      padding: 50px 20px 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .info-item span {
-            font-size: 1.1rem;
-            color: #2c3539;
-            font-weight: 600;
-        }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.65rem;
+      font-weight: 800;
+      color: #800020;
+      width: 100%;
+      max-width: 900px;
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 70px;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6);
+    }
 
-        /* Đoạn giới thiệu phong cách Vibe Sách & Cây */
-        .quote-box {
-            border-left: 4px solid #81a9ee;
-            background: #f4f7fc;
-            padding: 20px;
-            border-radius: 0 12px 12px 0;
-            text-align: left;
-            font-size: 1.05rem;
-            color: #4a5b6c;
-            line-height: 1.7;
-        }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 45px;
+      width: 100%;
+      max-width: 900px;
+      align-items: start;
+    }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 25px;
-            background-color: #81a9ee;
-            color: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-top: 3px solid #ffdb83;
-            margin-top: 60px;
-        }
+    .card {
+      border-radius: 24px;
+      padding: 28px 20px;
+      color: #210100;
+      height: 400px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            .profile-content {
-                padding: 20px 20px 40px 20px;
-            }
-        }
-    </style>
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .card-1 {
+      background-color: #92befe;
+      margin-top: 0;
+    }
+
+    .card-2 {
+      background-color: #c69dfd;
+      margin-top: 25px;
+    }
+
+    .card-3 {
+      background-color: #f882b4;
+      margin-top: 0;
+    }
+
+    .card-title {
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .card-text {
+      font-size: 1.2rem;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .card-list {
+      list-style: none;
+      margin-top: 5px;
+    }
+
+    .card-list li {
+      margin-bottom: 4px;
+    }
+
+    .footer-section {
+      margin-top: 170px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-title {
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #470314;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6);
+    }
+
+    .cat-img {
+      width: 170px;
+      mix-blend-mode: multiply;
+    }
+
+    @media (max-width: 850px) {
+      .profile-combined-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .avatar-wrapper {
+        width: 100%;
+        max-width: 280px;
+        height: 220px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-2 {
+        margin-top: 0;
+      }
+      .section-title {
+        padding-left: 0;
+        text-align: center;
+      }
+      .flying-cow {
+        width: 140px;
+        right: 10px;
+        bottom: 10px;
+      }
+      .sky-title, .section-title, .footer-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <nav>
+      <div class="logo">Cozy House 🏡</div>
+      <div class="nav-right-container">
+          <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+          </ul>
+          <div class="custom-logo-area" title="Logo nhóm">
+              <img src="logo.png" alt="Logo">
+          </div>
+      </div>
+  </nav>
 
-    <!-- Thanh Menu Navigation -->
-    <nav>
-        <div class="logo">Cozy House 🏡</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="baitap.html">Bài Tập Nhóm</a></li>
-        </ul>
-    </nav>
-
-    <main class="profile-container">
-        <a href="about.html" class="back-btn">&larr; Quay lại danh sách thành viên</a>
-
-        <div class="profile-card">
-            <!-- Banner ảnh nền phong cảnh -->
-            <div class="profile-header-bg"></div>
-
-            <!-- Ảnh đại diện -->
-            <div class="profile-avatar-container">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCt1uCTxvW8mXKGUl4l4b-le7WgjaPn-60SFHerpYihvvfC6GJkkrawCe5Yz8CrRSJck5I7bCl_NjcQN1f69yjxJEx1mvUP9psTDqIvB46aCK85rteqn8pOnXBKNsCxWDyC68bh-pBomU3/s1600/hinh-nen-phong-canh-dep+%252813%2529.jpg" alt="Hồ Ngọc Bảo Quyên" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop'">
-            </div>
-
-            <div class="profile-content">
-                <h1>Hồ Ngọc Bảo Quyên</h1>
-                <p class="profile-tagline">"Tâm bình thế giới bình, tâm an vạn sự an."</p>
-
-                <!-- Thông tin chi tiết -->
-                <div class="info-grid">
-                    <div class="info-item">
-                        <label>Họ và Tên</label>
-                        <span>Hồ Ngọc Bảo Quyên</span>
-                    </div>
-                    <div class="info-item">
-                        <label>Ngày sinh</label>
-                        <span>06/02/2009</span>
-                    </div>
-                    <div class="info-item">
-                        <label>Lớp</label>
-                        <span>12 Toán Tin</span>
-                    </div>
-                    <div class="info-item">
-                        <label>Vai trò</label>
-                        <span>Coder</span>
-                    </div>
-                </div>
-
-                <div class="info-item" style="margin-bottom: 25px; text-align: left;">
-                    <label style="margin-bottom: 8px;">Sở thích cá nhân</label>
-                    <span style="font-size: 1.05rem; background: #faf8f5; padding: 10px 15px; display: block; border-radius: 8px; border: 1px solid #eee8d5;">
-                        📚 Đọc tiểu thuyết trinh thám, kinh dị & xem phim
-                    </span>
-                </div>
-
-                <!-- Giới thiệu phong cách Vibe Sách & Cây -->
-                <div class="quote-box">
-                    🌿 Chào mừng bạn ghé thăm góc nhỏ của tớ trong ngôi nhà chung Cozy House. 
-                </div>
-            </div>
+  <div class="wrapper">
+    
+    <section class="sky-section">
+      <h1 class="sky-title">Welcome to Profile của Quyên</h1>
+      
+      <div class="profile-combined-box">
+        <div class="avatar-wrapper">
+          <img class="avatar-img" src="bq.png" alt="Bảo Quyên">
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 Nhóm Cozy House. All rights reserved.</p>
-    </footer>
+        <div class="info-details">
+          <div class="info-item">Tên: Hồ Ngọc Bảo Quyên</div>
+          <div class="info-item">Lớp: 12 TT (K34)</div>
+          <div class="info-item">Ngày sinh: 06/02/2009</div>
+          <div class="info-item">Châm ngôn sống:</div>
+          <div class="quote-box">
+            <p>“Tiền không mua được hạnh phúc ư?</p>
+            <p>Đó là vì bạn chưa có đủ nhiều tiền thôi!”</p>
+          </div>
+        </div>
+      </div>
+
+      <img class="flying-cow" src="bo.png" alt="Bò bay">
+    </section>
+
+    <section class="yellow-section">
+      <h2 class="section-title">Những thú vui ngoài giờ của tớ&gt;&gt;</h2>
+
+      <div class="cards-grid">
+        
+        <div class="card card-1">
+          <h3 class="card-title">CHƠI GAME</h3>
+          <div class="card-text">
+            <p>Là học sinh ai chả mê chơi game!</p>
+            <p>List game mình hay chơi:</p>
+            <ul class="card-list">
+              <li>+ Sky children of the light</li>
+              <li>+ Tsuki Odyssey</li>
+              <li>+ Identity V</li>
+              <li>+ ...</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card-2">
+          <h3 class="card-title">ĐỌC TIỂU THUYẾT</h3>
+          <div class="card-text">
+            <p>Tui là một tín đồ của tiểu thuyết kinh dị, trinh thám đó kaka!</p>
+            <p>List tiểu thuyết mình thích:</p>
+            <ul class="card-list">
+              <li>+ Án mạng tháp thủy tinh</li>
+              <li>+ Năm kẻ sống sót</li>
+              <li>+ Lớp có tang sự không cần điểm danh</li>
+              <li>+ ...</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card-3">
+          <h3 class="card-title">TRỒNG CÂY</h3>
+          <div class="card-text">
+            <p>Chăm sóc cây trồng giúp chúng ta relax và xả stress rất hiệu quả đó!</p>
+            <p>Một số loài cây mình từng trồng:</p>
+            <ul class="card-list">
+              <li>+ Đậu bắp</li>
+              <li>+ Cây đô la</li>
+              <li>+ Khoai tây</li>
+              <li>+ ...</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-section">
+        <h2 class="footer-title">Hết rồi! Chúc cả nhà phát tài phát lộc nha&lt;3</h2>
+        <img class="cat-img" src="meo.png" alt="Mèo phát tài">
+      </div>
+
+    </section>
+
+  </div>
 
 </body>
 </html>
